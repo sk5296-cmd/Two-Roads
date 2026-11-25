@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Two Roads to Freedom</title>
   <style>
-    /* Upgraded Modern Dark Theme */
+    /* Premium Modern Dark Theme */
     body {
       background: radial-gradient(circle at top left, #1f1c2c, #000000);
       color: #e2e8f0;
@@ -25,12 +25,11 @@
       border-bottom: 4px solid #f59e0b;
     }
 
-    /* Adds a cool subtle pattern over the header */
     header::after {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
       background-size: 20px 20px;
       pointer-events: none;
     }
@@ -118,48 +117,90 @@
       border-radius: 2px;
     }
 
+    /* Interactive Flip Cards Grid */
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
     }
 
-    .content-box {
-      background: rgba(30, 30, 35, 0.6);
-      padding: 2.5rem;
+    .flip-card {
+      background-color: transparent;
+      height: 300px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       border-radius: 16px;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    .flip-card-front {
+      background: rgba(30, 30, 35, 0.8);
       border: 1px solid rgba(255,255,255,0.05);
       border-top: 4px solid #ef4444;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .content-box:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(239, 68, 68, 0.15);
-      background: rgba(35, 35, 45, 0.8);
+    .flip-card:nth-child(2) .flip-card-front { border-top-color: #f59e0b; }
+    .flip-card:nth-child(3) .flip-card-front { border-top-color: #3b82f6; }
+
+    .flip-card-back {
+      background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+      color: #fff;
+      transform: rotateY(180deg);
+      border: 1px solid #444;
     }
 
-    h3 {
+    .icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .flip-card-front h3 {
       color: #f59e0b;
       font-size: 1.8rem;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      margin: 0 0 0.5rem 0;
     }
 
-    .content-box p {
-      line-height: 1.8;
-      font-size: 1.05rem;
+    .flip-card-front p {
       color: #94a3b8;
+      font-size: 1.1rem;
+      font-weight: 500;
       margin: 0;
     }
-    
-    /* Unique accent colors for different cards */
-    .content-box:nth-child(2) { border-top-color: #f59e0b; }
-    .content-box:nth-child(3) { border-top-color: #3b82f6; }
+
+    .flip-card-back p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      margin: 0;
+      text-align: left;
+    }
   </style>
 </head>
 <body>
@@ -183,20 +224,49 @@
     <h2>Project Introduction</h2>
     
     <div class="grid-container">
-      <div class="content-box">
-        <h3>Two Epic Narratives</h3>
-        <p>This project explores the striking parallels between two of history's most famous stories of liberation: the American Revolution, as detailed in David McCullough's <em>1776</em>, and the biblical Exodus from Egypt. While separated by thousands of years, both historical events share a common theme of an oppressed people fighting against a massive empire to secure their freedom.</p>
+      
+      <!-- Card 1 -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="icon">📜</div>
+            <h3>Two Epics</h3>
+            <p>Hover to reveal the historical connection.</p>
+          </div>
+          <div class="flip-card-back">
+            <p><strong>The Core Parallel:</strong> The American Revolution (detailed in McCullough's <em>1776</em>) and the biblical Exodus both center on an oppressed populace successfully defying an established, dominant empire to forge a sovereign identity.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="content-box">
-        <h3>Crossing the Waters</h3>
-        <p>At the center of both stories is a dramatic crossing that changed everything. The Israelites famously crossed the Red Sea to escape the pharaoh's army, while George Washington's army crossed the icy Delaware River in a freezing storm to save the American cause. Both critical moments required immense faith, courage, and leadership against impossible odds.</p>
+      <!-- Card 2 -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="icon">🌊</div>
+            <h3>The Crossings</h3>
+            <p>Hover to reveal the pivotal moments.</p>
+          </div>
+          <div class="flip-card-back">
+            <p><strong>Defying the Elements:</strong> The Israelites' miraculous parting of the Red Sea mirrors Washington's daring, icy crossing of the Delaware River. Both were desperate, pivotal maneuvers requiring immense faith and resolute leadership against insurmountable odds.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="content-box">
-        <h3>Explore the Exhibit</h3>
-        <p>Use the navigation menu above to explore the different parts of this comparison. We will look at the leaders who guided these movements, the impossible crossings they made, the long journeys they endured, and also where this historical comparison ultimately reaches its limits.</p>
+      <!-- Card 3 -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="icon">🧭</div>
+            <h3>The Exhibit</h3>
+            <p>Hover to reveal the site structure.</p>
+          </div>
+          <div class="flip-card-back">
+            <p><strong>Explore the Comparison:</strong> Utilize the navigation menu to examine the respective leaders, the hazardous crossings, the enduring journeys toward liberation, and critically analyze the historical limitations of this comparative framework.</p>
+          </div>
+        </div>
       </div>
+
     </div>
   </main>
 
