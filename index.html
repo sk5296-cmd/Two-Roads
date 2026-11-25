@@ -16,45 +16,93 @@
     }
     
     header {
-      background: linear-gradient(135deg, #ef4444 0%, #b91c1c 50%, #f59e0b 100%);
-      padding: 5rem 2rem;
-      text-align: center;
-      color: #fff;
       position: relative;
-      overflow: hidden;
+      padding: 4rem 2rem;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border-bottom: 4px solid #f59e0b;
+      min-height: 400px;
     }
 
+    /* Left side - Delaware Crossing */
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0; width: 50%;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/95/Washington_Crossing_the_Delaware_by_Emanuel_Leutze%2C_MMA-NYC%2C_1851.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.5;
+    }
+
+    /* Right side - Parting the Red Sea */
     header::after {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
-      background-size: 20px 20px;
-      pointer-events: none;
+      top: 0; right: 0; bottom: 0; width: 50%;
+      background-image: url('https://israelicenterofjudaica.com/wp-content/uploads/2024/05/YCPE03-3.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.5;
+    }
+
+    /* Overlay line down the middle */
+    .header-divider {
+      position: absolute;
+      top: 0; bottom: 0; left: 50%;
+      width: 4px;
+      background: #f59e0b;
+      z-index: 1;
+      transform: translateX(-50%);
+      box-shadow: 0 0 15px #f59e0b;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      background: rgba(15, 15, 20, 0.85);
+      padding: 2rem 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(5px);
+    }
+
+    .portraits {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .portraits img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #f59e0b;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
 
     h1 {
-      font-size: 4rem;
+      font-size: 3.5rem;
       margin: 0 0 1rem 0;
       text-transform: uppercase;
       letter-spacing: 4px;
       font-weight: 900;
-      text-shadow: 0 4px 15px rgba(0,0,0,0.5);
-      position: relative;
-      z-index: 1;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.8);
     }
 
     p.intro {
-      font-size: 1.3rem;
-      max-width: 800px;
+      font-size: 1.2rem;
+      max-width: 700px;
       margin: 0 auto;
       font-weight: 500;
       line-height: 1.6;
       color: #fca5a5;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-      position: relative;
-      z-index: 1;
     }
 
     nav {
@@ -78,7 +126,7 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 30px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s ease;
       font-weight: 600;
       font-size: 1rem;
       text-transform: uppercase;
@@ -156,119 +204,3 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
-      box-sizing: border-box;
-    }
-
-    .flip-card-front {
-      background: rgba(30, 30, 35, 0.8);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-top: 4px solid #ef4444;
-    }
-
-    .flip-card:nth-child(2) .flip-card-front { border-top-color: #f59e0b; }
-    .flip-card:nth-child(3) .flip-card-front { border-top-color: #3b82f6; }
-
-    .flip-card-back {
-      background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
-      color: #fff;
-      transform: rotateY(180deg);
-      border: 1px solid #444;
-    }
-
-    .icon {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .flip-card-front h3 {
-      color: #f59e0b;
-      font-size: 1.8rem;
-      margin: 0 0 0.5rem 0;
-    }
-
-    .flip-card-front p {
-      color: #94a3b8;
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin: 0;
-    }
-
-    .flip-card-back p {
-      line-height: 1.6;
-      font-size: 1.1rem;
-      color: #e2e8f0;
-      margin: 0;
-      text-align: left;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>Two Roads to Freedom</h1>
-    <p class="intro">Two peoples walked out of bondage. One crossed a sea, the other crossed a river in a storm.</p>
-  </header>
-  
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="leaders.html">The Leaders</a>
-    <a href="crossing.html">The Crossing</a>
-    <a href="journey.html">The Long Journey</a>
-    <a href="comparison.html">Where it Breaks</a>
-    <a href="game.html">The Game</a>
-    <a href="sources.html">Sources</a>
-  </nav>
-
-  <main>
-    <h2>Project Introduction</h2>
-    
-    <div class="grid-container">
-      
-      <!-- Card 1 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <div class="icon">📜</div>
-            <h3>Two Epics</h3>
-            <p>Hover to reveal the historical connection.</p>
-          </div>
-          <div class="flip-card-back">
-            <p><strong>The Core Parallel:</strong> The American Revolution (detailed in McCullough's <em>1776</em>) and the biblical Exodus both center on an oppressed populace successfully defying an established, dominant empire to forge a sovereign identity.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <div class="icon">🌊</div>
-            <h3>The Crossings</h3>
-            <p>Hover to reveal the pivotal moments.</p>
-          </div>
-          <div class="flip-card-back">
-            <p><strong>Defying the Elements:</strong> The Israelites' miraculous parting of the Red Sea mirrors Washington's daring, icy crossing of the Delaware River. Both were desperate, pivotal maneuvers requiring immense faith and resolute leadership against insurmountable odds.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <div class="icon">🧭</div>
-            <h3>The Exhibit</h3>
-            <p>Hover to reveal the site structure.</p>
-          </div>
-          <div class="flip-card-back">
-            <p><strong>Explore the Comparison:</strong> Utilize the navigation menu to examine the respective leaders, the hazardous crossings, the enduring journeys toward liberation, and critically analyze the historical limitations of this comparative framework.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </main>
-
-</body>
-</html>
