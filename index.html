@@ -204,3 +204,128 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    .flip-card-front {
+      background: rgba(30, 30, 35, 0.8);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-top: 4px solid #ef4444;
+    }
+
+    .flip-card:nth-child(2) .flip-card-front { border-top-color: #f59e0b; }
+    .flip-card:nth-child(3) .flip-card-front { border-top-color: #3b82f6; }
+
+    .flip-card-back {
+      background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+      color: #fff;
+      transform: rotateY(180deg);
+      border: 1px solid #444;
+    }
+
+    .icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .flip-card-front h3 {
+      color: #f59e0b;
+      font-size: 1.8rem;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .flip-card-front p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .flip-card-back p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      margin: 0;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-divider"></div>
+    <div class="header-content">
+      <div class="portraits">
+        <!-- George Washington -->
+        <img src="https://mtv-main-assets.mountvernon.org/files/styles/original/s3/callouts/1--washington_1772-charles-willson-peale.jpg.webp" alt="George Washington">
+        <!-- Moses -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Basilica_San_Giulio_-_Fresco_David_Moses_%28cropped%29.jpg" alt="Moses">
+      </div>
+      <h1>Two Roads to Freedom</h1>
+      <p class="intro">Two peoples walked out of bondage. One crossed a sea, the other crossed a river in a storm.</p>
+    </div>
+  </header>
+  
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="leaders.html">The Leaders</a>
+    <a href="crossing.html">The Crossing</a>
+    <a href="journey.html">The Long Journey</a>
+    <a href="comparison.html">Where it Breaks</a>
+    <a href="game.html">The Game</a>
+    <a href="sources.html">Sources</a>
+  </nav>
+
+  <main>
+    <h2>Project Introduction</h2>
+    
+    <div class="grid-container">
+      
+      <!-- Card 1 -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="icon">📜</div>
+            <h3>Two Epics</h3>
+            <p>Hover to reveal the historical connection.</p>
+          </div>
+          <div class="flip-card-back">
+            <p><strong>The Core Parallel:</strong> The American Revolution (detailed in McCullough's <em>1776</em>) and the biblical Exodus both center on an oppressed populace successfully defying an established, dominant empire to forge a sovereign identity.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="icon">🌊</div>
+            <h3>The Crossings</h3>
+            <p>Hover to reveal the pivotal moments.</p>
+          </div>
+          <div class="flip-card-back">
+            <p><strong>Defying the Elements:</strong> The Israelites' miraculous parting of the Red Sea mirrors Washington's daring, icy crossing of the Delaware River. Both were desperate, pivotal maneuvers requiring immense faith and resolute leadership against insurmountable odds.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="icon">🧭</div>
+            <h3>The Exhibit</h3>
+            <p>Hover to reveal the site structure.</p>
+          </div>
+          <div class="flip-card-back">
+            <p><strong>Explore the Comparison:</strong> Utilize the navigation menu to examine the respective leaders, the hazardous crossings, the enduring journeys toward liberation, and critically analyze the historical limitations of this comparative framework.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>
