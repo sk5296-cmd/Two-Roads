@@ -3,90 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Leaders: Moshe & Washington</title>
+    <title>The Leaders - Two Roads to Freedom</title>
     <style>
+        /* Premium Modern Dark Theme - Matching Index */
         body {
-            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at top left, #1f1c2c, #000000);
+            color: #e2e8f0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar (matching Index exactly) */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 2rem 1rem;
+            flex-wrap: wrap;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            border-bottom: 2px solid #f59e0b;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover, nav a.active {
+            background: #ef4444;
+            color: #fff;
+            border-color: #ef4444;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 900;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #f59e0b;
+            margin: 1.5rem auto 3rem;
+            border-radius: 2px;
+            box-shadow: 0 0 10px #f59e0b;
+        }
+
+        p.subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            color: #fca5a5;
+            line-height: 1.6;
+        }
+
+        /* Leader Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 800px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .leader-card {
+            background: rgba(30, 30, 35, 0.8);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .leader-card:nth-child(1) {
+            border-top: 4px solid #3b82f6; /* Blue for Washington */
+        }
+        
+        .leader-card:nth-child(2) {
+            border-top: 4px solid #f59e0b; /* Amber for Moshe */
+        }
+
+        .portrait {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top;
+            margin: -6rem auto 2rem auto;
+            display: block;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.8);
+        }
+
+        .leader-card:nth-child(1) .portrait {
+            border: 4px solid #3b82f6;
+        }
+
+        .leader-card:nth-child(2) .portrait {
+            border: 4px solid #f59e0b;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+
+        .trait-group {
+            margin-bottom: 2rem;
+            background: rgba(255,255,255,0.03);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid #ef4444;
+        }
+
+        .trait-title {
+            color: #fca5a5;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .trait-desc {
+            color: #cbd5e1;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
-        .comparison-grid {
-            display: flex;
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .leader-card {
-            flex: 1;
-            padding: 20px;
-            background: #ecf0f1;
-            border-radius: 8px;
-        }
-        .leader-card h2 {
-            text-align: center;
-            color: #2980b9;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        .back-btn {
-            display: inline-block;
-            margin-bottom: 20px;
-            text-decoration: none;
-            background: #34495e;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-        .back-btn:hover {
-            background: #2c3e50;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <a href="index.html" class="back-btn">&larr; Back to Home</a>
-        
-        <h1>Parallels in Leadership</h1>
-        <p>Moshe (Moses) and George Washington lived thousands of years apart, yet their journeys as foundational leaders share striking similarities.</p>
+    <!-- Unified Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="leaders.html" class="active">The Leaders</a>
+        <a href="crossing.html">The Crossing</a>
+        <a href="journey.html">The Long Journey</a>
+        <a href="comparison.html">Where it Breaks</a>
+        <a href="game.html">The Game</a>
+        <a href="sources.html">Sources</a>
+    </nav>
+
+    <main>
+        <h1>The Reluctant Commanders</h1>
+        <p class="subtitle">Thousands of years and an ocean apart, George Washington and Moshe Rabbeinu shared a profound paradox: they were the exact leaders their people needed, precisely because they did not want the job.</p>
 
         <div class="comparison-grid">
+            
+            <!-- Washington Side -->
             <div class="leader-card">
-                <h2>Moshe (Moses)</h2>
-                <ul>
-                    <li><strong>The Liberator:</strong> Led the Israelites out of slavery in Egypt against a massive empire.</li>
-                    <li><strong>Reluctant Leader:</strong> Initially argued with God at the burning bush, doubting his own ability to speak and lead.</li>
-                    <li><strong>The Lawgiver:</strong> Brought down the Ten Commandments and the Torah, establishing the legal and moral foundation for his people.</li>
-                    <li><strong>The Final Sacrifice:</strong> Led his people for 40 years but was not allowed to enter the Promised Land himself.</li>
-                </ul>
+                <img src="https://mtv-main-assets.mountvernon.org/files/styles/original/s3/callouts/1--washington_1772-charles-willson-peale.jpg.webp" alt="George Washington Portrait" class="portrait">
+                <h2>George Washington</h2>
+                
+                <div class="trait-group">
+                    <div class="trait-title">The Reluctant Hero</div>
+                    <p class="trait-desc">Arrived at the Continental Congress in military uniform but claimed he lacked the ability to lead the army, later seeking to return to his Mount Vernon farm rather than assume the Presidency.</p>
+                </div>
+
+                <div class="trait-group">
+                    <div class="trait-title">The Unifying Figure</div>
+                    <p class="trait-desc">The only individual capable of holding together thirteen disparate, arguing colonies into a single fighting force and eventual unified nation.</p>
+                </div>
+
+                <div class="trait-group">
+                    <div class="trait-title">The Final Sacrifice</div>
+                    <p class="trait-desc">Stepped away from power entirely after two terms, establishing the ultimate precedent that the nation must outlive its individual leader.</p>
+                </div>
             </div>
 
+            <!-- Moshe Side -->
             <div class="leader-card">
-                <h2>George Washington</h2>
-                <ul>
-                    <li><strong>The Liberator:</strong> Led the Continental Army to independence against the British Empire.</li>
-                    <li><strong>Reluctant Leader:</strong> Expressed deep hesitation about becoming the first President and sought to retire to his farm.</li>
-                    <li><strong>The Founder:</strong> Presided over the Constitutional Convention, helping establish the legal framework for the new nation.</li>
-                    <li><strong>Stepping Down:</strong> Voluntarily relinquished power after two terms, ensuring the nation outlived his individual leadership.</li>
-                </ul>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Rembrandt_Harmensz._van_Rijn_079.jpg" alt="Moshe Rabbeinu Portrait" class="portrait">
+                <h2>Moshe Rabbeinu</h2>
+                
+                <div class="trait-group">
+                    <div class="trait-title">The Reluctant Prophet</div>
+                    <p class="trait-desc">Argued with God at the burning bush, insisting he was "slow of speech and slow of tongue," desperately attempting to refuse the mantle of leadership.</p>
+                </div>
+
+                <div class="trait-group">
+                    <div class="trait-title">The Unifying Figure</div>
+                    <p class="trait-desc">Tasked with taking a fractured population of enslaved people, prone to rebellion and complaint, and forging them into a unified nation at Sinai.</p>
+                </div>
+
+                <div class="trait-group">
+                    <div class="trait-title">The Final Sacrifice</div>
+                    <p class="trait-desc">Led the Israelites for 40 grueling years through the desert, only to be denied entry into the Promised Land himself, ensuring the Torah and the people carried on without him.</p>
+                </div>
             </div>
+
         </div>
-    </div>
+    </main>
 
 </body>
 </html>
